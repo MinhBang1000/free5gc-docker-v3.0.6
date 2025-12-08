@@ -19,7 +19,7 @@ services:
           - upf.free5gc.org
   db:
     container_name: mongodb
-    image: mongo
+    image: mongo:4.4
     command: mongod --port 27017
     expose:
       - "27017"

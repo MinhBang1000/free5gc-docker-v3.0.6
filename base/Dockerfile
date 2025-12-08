@@ -1,5 +1,10 @@
 # FROM golang:1.14.4-stretch AS builder
-FROM golang:1.17.13-bullseye AS builder
+# FROM golang:1.17.13-bullseye AS builder
+FROM golang:1.17.13-buster AS builder
+
+RUN sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' /etc/apt/sources.list && \
+    sed -i 's|http://security.debian.org/debian-security|http://archive.debian.org/debian-security|g' /etc/apt/sources.list && \
+    sed -i '/updates/d' /etc/apt/sources.list
 
 LABEL maintainer="Free5GC <support@free5gc.org>"
 
